@@ -42,7 +42,7 @@ class RadacctModel(models.Model):
         primary_key=True, null=False
     )
     acctsessionid = models.CharField(max_length=64, null=False, default='')
-    acctuniqueid = models.CharField(max_length=32, null=False, default='')
+    acctuniqueid = models.CharField(max_length=32, null=False, default='', unique=True)
     rad_username = models.CharField(
         max_length=64, db_column='username', null=False, default=''
     )
@@ -88,6 +88,8 @@ class RadcheckModel(models.Model):
     class Meta:
         managed = False
         db_table = 'radcheck'
+        verbose_name = 'RADIUS check'
+        verbose_name_plural = 'RADIUS checks'
 
 
 class RadgroupcheckModel(models.Model):
@@ -99,6 +101,8 @@ class RadgroupcheckModel(models.Model):
     class Meta:
         managed = False
         db_table = 'radgroupcheck'
+        verbose_name = 'RADIUS group check'
+        verbose_name_plural = 'RADIUS group checks'
 
 
 class RadgroupreplyModel(models.Model):
@@ -140,6 +144,8 @@ class RadreplyModel(models.Model):
     class Meta:
         managed = False
         db_table = 'radreply'
+        verbose_name = 'RADIUS reply'
+        verbose_name_plural = 'RADIUS replies'
 
 
 class RadusergroupModel(models.Model):
@@ -152,3 +158,5 @@ class RadusergroupModel(models.Model):
     class Meta:
         managed = False
         db_table = 'radusergroup'
+        verbose_name = 'RADIUS user group'
+        verbose_name_plural = 'RADIUS user groups'
