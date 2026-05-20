@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+{% load django_bootstrap5 %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      Username: {{ user.rad_username }}
+    </div>
+  </div>
+
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Group</th>
+      <th scope="col">Priority</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for group in groups %}
+    <tr>
+        <td>{{ group.groupname }}</td>
+        <td>{{ group.priority }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+  </table>
+</div>
+
+{% endblock content %}
